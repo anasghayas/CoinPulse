@@ -36,13 +36,13 @@ export default function CoinCarousel() {
   }, [coins.length, isPaused, loopedCoins.length])
 
   return (
-    <section className="mb-4 w-full overflow-hidden rounded-none border-0 bg-transparent p-0 shadow-none">
+    <section className="mb-4 w-full">
       <BackgroundGradientAnimation
         interactive={false}
-        containerClassName="h-[38vh] min-h-[360px] w-full overflow-hidden rounded-[0.35rem] border border-white/10 bg-slate-950/40 shadow-none"
+        containerClassName="h-[38vh] min-h-[360px] w-full overflow-hidden rounded-[0.35rem] border border-white/10 bg-slate-950/40"
         className="relative z-10 flex h-full items-center"
       >
-        <div className="relative flex h-full w-full items-center overflow-hidden px-0 py-4 sm:px-0 lg:px-0">
+        <div className="relative flex h-full w-full items-center overflow-hidden py-4">
           <div
             className="flex items-center transition-transform duration-[2600ms] ease-linear will-change-transform"
             style={{ transform: `translateX(-${position * STEP_WIDTH}px)` }}

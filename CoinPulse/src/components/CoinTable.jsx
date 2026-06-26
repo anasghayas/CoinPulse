@@ -9,10 +9,10 @@ import {
 
 export default function CoinTable({ coins }) {
   return (
-    <div className="w-full overflow-hidden rounded-[0.35rem] border border-slate-800 bg-slate-900/95 shadow-none">
+    <div className="w-full overflow-hidden rounded-[0.35rem] border border-slate-800 bg-slate-900/95">
       <Table>
         <TableHeader>
-          <TableRow className="border-b border-slate-800/80 bg-amber-400/95 hover:bg-amber-400/95">
+          <TableRow className="border-b border-slate-800/80 bg-amber-400/95">
             <TableHead className="px-6 py-5 text-sm font-semibold uppercase tracking-[0.24em] text-slate-950">Coin</TableHead>
             <TableHead className="px-6 py-5 text-sm font-semibold uppercase tracking-[0.24em] text-slate-950">Price</TableHead>
             <TableHead className="px-6 py-5 text-sm font-semibold uppercase tracking-[0.24em] text-slate-950">24h</TableHead>
@@ -26,7 +26,7 @@ export default function CoinTable({ coins }) {
                 <div className="flex items-center gap-4">
                   <img src={coin.image} alt={coin.name} className="h-10 w-10 rounded-full" />
                   <div>
-                    <p className="text-base font-semibold text-white">{coin.name}</p>
+                    <p className="font-semibold text-white">{coin.name}</p>
                     <p className="text-sm text-slate-500">{coin.symbol.toUpperCase()}</p>
                   </div>
                 </div>

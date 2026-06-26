@@ -22,16 +22,16 @@ export default function Header() {
   return (
     <header className="border-b border-slate-800 bg-slate-900/90 px-4 py-4 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
-        <Link to="/" className="text-2xl font-bold tracking-tight text-white">
+        <Link to="/" className="text-2xl font-bold text-white">
           CoinPulse
         </Link>
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex items-center gap-3">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="outline"
                 size="sm"
-                className="h-11 min-w-[96px] justify-between rounded-[0.35rem] border-amber-400/70 bg-amber-400 px-4 text-sm font-semibold text-slate-950 hover:bg-amber-300 hover:text-slate-950 focus:bg-amber-400 focus:text-slate-950"
+                className="h-11 min-w-[96px] justify-between rounded-[0.35rem] border-amber-400/70 bg-amber-400 px-4 text-sm font-semibold text-slate-950 hover:bg-amber-300 focus:bg-amber-400"
               >
                 {currency.toUpperCase()}
                 <ChevronDown className="ml-2 h-4 w-4" />

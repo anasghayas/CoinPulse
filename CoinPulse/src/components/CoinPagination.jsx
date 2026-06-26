@@ -9,6 +9,8 @@ import {
 
 export default function CoinPagination({ totalPages, currentPage, onPageChange }) {
   const safePage = Math.min(currentPage, totalPages)
+  const activeClass = 'h-10 min-w-10 rounded-[0.35rem] border border-amber-400 bg-amber-400 text-slate-950 hover:bg-amber-300'
+  const inactiveClass = 'h-10 min-w-10 rounded-[0.35rem] border border-amber-400/60 bg-slate-900 text-amber-100 hover:bg-amber-200 hover:text-slate-950'
 
   return (
     <Pagination className="mt-8">
@@ -29,7 +31,7 @@ export default function CoinPagination({ totalPages, currentPage, onPageChange }
             <PaginationLink
               href="#"
               isActive={pageNumber === safePage}
-              className={pageNumber === safePage ? 'h-10 min-w-10 rounded-[0.35rem] border border-amber-400 bg-amber-400 text-slate-950 hover:bg-amber-300' : 'h-10 min-w-10 rounded-[0.35rem] border border-amber-400/60 bg-slate-900 text-amber-100 hover:bg-amber-200 hover:text-slate-950'}
+              className={pageNumber === safePage ? activeClass : inactiveClass}
               onClick={(event) => {
                 event.preventDefault()
                 onPageChange(pageNumber)
