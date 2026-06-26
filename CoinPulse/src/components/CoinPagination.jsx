@@ -9,16 +9,15 @@ import {
 
 export default function CoinPagination({ totalPages, currentPage, onPageChange }) {
   const safePage = Math.min(currentPage, totalPages)
-  const activeClass = 'h-10 min-w-10 rounded-[0.35rem] border border-amber-400 bg-amber-400 text-slate-950 hover:bg-amber-300'
-  const inactiveClass = 'h-10 min-w-10 rounded-[0.35rem] border border-amber-400/60 bg-slate-900 text-amber-100 hover:bg-amber-200 hover:text-slate-950'
-
+  const activeClass = 'h-10 min-w-10 rounded-[0.35rem] border border-amber-400 bg-amber-400 text-slate-950 hover:bg-amber-400 hover:text-slate-950'
+  const inactiveClass = 'h-10 min-w-10 rounded-[0.35rem] border border-zinc-700 bg-zinc-800/90 text-zinc-100 hover:bg-amber-400 hover:text-slate-950'
   return (
     <Pagination className="mt-8">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
             href="#"
-            className="h-10 rounded-[0.35rem] border border-amber-400/60 bg-amber-400 text-slate-950 hover:bg-amber-300"
+            className={`${inactiveClass}`}
             onClick={(event) => {
               event.preventDefault()
               onPageChange(Math.max(1, safePage - 1))
@@ -45,7 +44,7 @@ export default function CoinPagination({ totalPages, currentPage, onPageChange }
         <PaginationItem>
           <PaginationNext
             href="#"
-            className="h-10 rounded-[0.35rem] border border-amber-400/60 bg-amber-400 text-slate-950 hover:bg-amber-300"
+            className={`${inactiveClass}`}
             onClick={(event) => {
               event.preventDefault()
               onPageChange(Math.min(totalPages, safePage + 1))

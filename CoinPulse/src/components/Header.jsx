@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <header className="border-b border-white/10 bg-black/90 px-4 py-4 backdrop-blur-xl">
+    <header className=" border-zinc-700 bg-zinc-800/90 px-4 py-4 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
         <Link to="/" className="text-3xl font-bold tracking-tight text-amber-400">
           CoinPulse
