@@ -51,7 +51,7 @@ export default function HomePage() {
   }, [search])
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-zinc-950 text-white">
       <Header />
       <main className="mx-auto w-full max-w-[1800px] px-2 py-6 sm:px-3 lg:px-4">
         <CoinCarousel />

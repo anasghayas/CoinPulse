@@ -39,7 +39,7 @@ export default function CoinCarousel() {
     <section className="mb-4 w-full">
       <BackgroundGradientAnimation
         interactive={false}
-        containerClassName="h-[38vh] min-h-[360px] w-full overflow-hidden rounded-[0.35rem] border border-white/10 bg-slate-950/40"
+        containerClassName="h-[38vh] min-h-[360px] w-full overflow-hidden rounded-[0.35rem] border border-white/10 bg-zinc-950/80"
         className="relative z-10 flex h-full items-center"
       >
         <div className="relative flex h-full w-full items-center overflow-hidden py-4">
