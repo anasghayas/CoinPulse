@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "env": "^0.0.2",
-    "react-router-dom": "^7.18.0"
-  }
-}

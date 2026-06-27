@@ -4,10 +4,12 @@ import Header from '../components/Header'
 import CoinChart from '../components/CoinChart'
 import { SingleCoin } from '../lib/coingecko'
 import { useCurrency } from '../context/CurrencyContext'
+import { useAuth } from '../context/AuthContext'
 
 export default function CoinPage() {
   const { id } = useParams()
   const { currency, symbol } = useCurrency()
+  const { user, wishlist, addToWishlist, removeFromWishlist } = useAuth()
   const [coin, setCoin] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -57,6 +59,19 @@ export default function CoinPage() {
   const currentPrice = coin.market_data?.current_price?.[currency] || 0
   const marketCap = coin.market_data?.market_cap?.[currency] || 0
   const change24h = coin.market_data?.price_change_percentage_24h || 0
+  const isWishlisted = wishlist.includes(coin.id)
+
+  const handleWishlistClick = () => {
+    if (!user) {
+      alert('Please log in to add coins to your wishlist!')
+      return
+    }
+    if (isWishlisted) {
+      removeFromWishlist(coin.id)
+    } else {
+      addToWishlist(coin.id)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white flex flex-col">
@@ -95,6 +110,17 @@ export default function CoinPage() {
               </span>
             </div>
           </div>
+
+          <button
+            onClick={handleWishlistClick}
+            className={`mt-6 w-full rounded py-2.5 text-sm font-semibold transition cursor-pointer ${
+              isWishlisted
+                ? 'bg-red-600 text-white hover:bg-red-700'
+                : 'bg-amber-400 text-black hover:bg-amber-500'
+            }`}
+          >
+            {isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
+          </button>
         </div>
 
         {/* Right Side: Chart Section */}
