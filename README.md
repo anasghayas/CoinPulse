@@ -2,6 +2,8 @@
 
 Developed by **Anas Ghayas**
 
+🔗 **Live Link**: [coinpulsecrypto.netlify.app](https://coinpulsecrypto.netlify.app)
+
 CoinPulse is a premium, real-time cryptocurrency tracker and analytics dashboard. It offers developers and crypto enthusiasts a seamless interface to inspect live price metrics, analyze historic market trend charts, manage custom watchlist items, and dynamically switch between global currencies (USD, INR, EUR) with real-time UI updates.
 
 ---
@@ -73,17 +75,17 @@ Follow these steps to run CoinPulse on your computer:
 ### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd CoinPulse/CoinPulse
+cd CoinPulse
 ```
 
 ### 2. Install Project Dependencies
-Use `npm` to install all package items inside the React subfolder:
+Use `npm` to install all package items inside the React project directory:
 ```bash
 npm install
 ```
 
 ### 3. Configure Environment Variables
-Create a file named `.env` in the root of the project subfolder (`CoinPulse/CoinPulse/.env`) and insert your Firebase app credentials:
+Create a file named `.env` in the root of the project directory (`CoinPulse/.env`) and insert your Firebase app credentials:
 ```env
 VITE_FIREBASE_API_KEY=your_api_key_here
 VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain_here
