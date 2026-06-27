@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
-import Header from '../components/Header'
-import CoinCarousel from '../components/CoinCarousel'
-import CoinListState from '../components/CoinListState'
-import CoinPagination from '../components/CoinPagination'
-import CoinSearchBar from '../components/CoinSearchBar'
-import CoinTable from '../components/CoinTable'
+import {
+  Header,
+  CoinCarousel,
+  CoinListState,
+  CoinPagination,
+  CoinSearchBar,
+  CoinTable,
+} from '../components'
 import { CoinList } from '../lib/coingecko'
-import { useCurrency } from '../context/CurrencyContext'
+import { useCurrency } from '../context'
 
 const PAGE_SIZE = 10
 

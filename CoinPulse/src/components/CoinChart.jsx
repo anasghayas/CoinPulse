@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts'
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from './ui/chart'
 import { HistoricalChart } from '../lib/coingecko'
-import { useCurrency } from '../context/CurrencyContext'
+import { useCurrency } from '../context'
 
 export default function CoinChart({ coinId }) {
   const { currency, symbol } = useCurrency()

@@ -1,0 +1,7 @@
+export { default as Header } from './Header'
+export { default as CoinCarousel } from './CoinCarousel'
+export { default as CoinChart } from './CoinChart'
+export { default as CoinListState } from './CoinListState'
+export { default as CoinPagination } from './CoinPagination'
+export { default as CoinSearchBar } from './CoinSearchBar'
+export { default as CoinTable } from './CoinTable'

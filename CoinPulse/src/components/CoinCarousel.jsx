@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CoinList } from '../lib/coingecko'
 import { BackgroundGradientAnimation } from './ui/background-gradient-animation'
-import { useCurrency } from '../context/CurrencyContext'
+import { useCurrency } from '../context'
 
 const STEP_WIDTH = 324
 

@@ -6,9 +6,8 @@ import {
   TableHeader,
   TableRow,
 } from './ui/table'
-import { useCurrency } from '../context/CurrencyContext'
+import { useCurrency, useAuth } from '../context'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
 import { Heart } from 'lucide-react'
 
 export default function CoinTable({ coins }) {

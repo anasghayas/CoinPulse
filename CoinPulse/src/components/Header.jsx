@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useCurrency } from '../context/CurrencyContext'
-import { useAuth } from '../context/AuthContext'
+import { useCurrency, useAuth } from '../context'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth'
 import { auth } from '../users/firebase'
 import { CoinList } from '../lib/coingecko'
@@ -10,13 +9,13 @@ import { X, Trash2 } from 'lucide-react'
 export default function Header() {
   const { currency, symbol, setCurrency } = useCurrency()
   const { user, wishlist, removeFromWishlist } = useAuth()
-  
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isSignUp, setIsSignUp] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [authError, setAuthError] = useState(null)
-  
+
   const [allCoins, setAllCoins] = useState([])
 
   // Fetch all coins to match metadata (images, prices) for wishlisted items
@@ -30,7 +29,7 @@ export default function Header() {
   const handleAuthSubmit = (e) => {
     e.preventDefault()
     setAuthError(null)
-    
+
     if (isSignUp) {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
@@ -106,9 +105,8 @@ export default function Header() {
       )}
 
       {/* Sidebar Drawer Container */}
-      <div className={`fixed right-0 top-0 h-screen w-80 md:w-96 bg-zinc-950 border-l border-zinc-800 z-50 p-6 flex flex-col shadow-2xl transition-transform duration-300 ${
-        isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
+      <div className={`fixed right-0 top-0 h-screen w-80 md:w-96 bg-zinc-950 border-l border-zinc-800 z-50 p-6 flex flex-col shadow-2xl transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}>
         <div className="flex items-center justify-between border-b border-zinc-800 pb-4 mb-6">
           <h2 className="text-lg font-bold text-zinc-100">
             {user ? 'My Profile' : isSignUp ? 'Sign Up' : 'Login'}
@@ -184,7 +182,7 @@ export default function Header() {
 
             <div className="border-t border-zinc-800 pt-4 flex-1 flex flex-col overflow-hidden">
               <h3 className="text-md font-bold text-zinc-100 mb-4">My Wishlist</h3>
-              
+
               {wishlist.length === 0 ? (
                 <p className="text-zinc-500 text-sm mt-4 text-center">Your wishlist is empty.</p>
               ) : (

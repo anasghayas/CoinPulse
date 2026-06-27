@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Header from '../components/Header'
-import CoinChart from '../components/CoinChart'
+import { Header, CoinChart } from '../components'
 import { SingleCoin } from '../lib/coingecko'
-import { useCurrency } from '../context/CurrencyContext'
-import { useAuth } from '../context/AuthContext'
+import { useCurrency, useAuth } from '../context'
 
 export default function CoinPage() {
   const { id } = useParams()
