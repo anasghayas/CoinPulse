@@ -2,23 +2,25 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CoinList } from '../lib/coingecko'
 import { BackgroundGradientAnimation } from './ui/background-gradient-animation'
+import { useCurrency } from '../context/CurrencyContext'
 
 const STEP_WIDTH = 324
 
 export default function CoinCarousel() {
+  const { currency, symbol } = useCurrency()
   const [coins, setCoins] = useState([])
   const [position, setPosition] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
 
   useEffect(() => {
-    fetch(CoinList('usd'))
+    fetch(CoinList(currency))
       .then((response) => {
         if (!response.ok) throw new Error('Failed to load carousel coins')
         return response.json()
       })
       .then((data) => setCoins(data.slice(0, 10)))
       .catch(() => setCoins([]))
-  }, [])
+  }, [currency])
 
   const loopedCoins = useMemo(() => {
     if (coins.length === 0) return []
@@ -58,7 +60,7 @@ export default function CoinCarousel() {
                 <img src={coin.image} alt={coin.name} className="mb-3 h-16 w-16 rounded-full" />
                 <p className="text-lg font-semibold text-white">{coin.name}</p>
                 <p className="text-sm text-slate-300">{coin.symbol.toUpperCase()}</p>
-                <p className="mt-2 text-sm font-medium text-white">${coin.current_price?.toLocaleString()}</p>
+                <p className="mt-2 text-sm font-medium text-white">{symbol}{coin.current_price?.toLocaleString()}</p>
                 <span className={`mt-1 text-sm font-semibold ${coin.price_change_percentage_24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
                   {coin.price_change_percentage_24h?.toFixed(2)}%
                 </span>

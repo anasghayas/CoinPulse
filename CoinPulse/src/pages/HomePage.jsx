@@ -6,10 +6,12 @@ import CoinPagination from '../components/CoinPagination'
 import CoinSearchBar from '../components/CoinSearchBar'
 import CoinTable from '../components/CoinTable'
 import { CoinList } from '../lib/coingecko'
+import { useCurrency } from '../context/CurrencyContext'
 
 const PAGE_SIZE = 10
 
 export default function HomePage() {
+  const { currency } = useCurrency()
   const [coins, setCoins] = useState([])
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
@@ -18,7 +20,7 @@ export default function HomePage() {
 
   useEffect(() => {
     setIsLoading(true)
-    fetch(CoinList('usd'))
+    fetch(CoinList(currency))
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch coins')
@@ -28,7 +30,7 @@ export default function HomePage() {
       .then((data) => setCoins(data))
       .catch((err) => setError(err.message))
       .finally(() => setIsLoading(false))
-  }, [])
+  }, [currency])
 
   const filteredCoins = useMemo(() => {
     const query = search.trim().toLowerCase()

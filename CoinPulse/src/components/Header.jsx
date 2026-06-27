@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import { useCurrency } from '../context/CurrencyContext'
 
 export default function Header() {
+  const { currency, setCurrency } = useCurrency()
+
   return (
     <header className=" border-zinc-700 bg-zinc-800/90 px-4 py-4 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
@@ -8,7 +11,11 @@ export default function Header() {
           CoinPulse
         </Link>
         <div className="flex flex-wrap items-center gap-3 ">
-          <select className="rounded-md border border-slate-700 bg-amber-400 px-3 py-2 text-sm font-semibold text-black">
+          <select
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value)}
+            className="rounded-md border border-slate-700 bg-amber-400 px-3 py-2 text-sm font-semibold text-black"
+          >
             <option value="usd" className="font-semibold">USD</option>
             <option value="inr" className="font-semibold">INR</option>
             <option value="eur" className="font-semibold">EUR</option>
